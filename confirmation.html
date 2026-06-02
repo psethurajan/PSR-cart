@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Placed — PSR-Card</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/checkout.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">PSR-Card</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"
+        aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav me-auto ms-3">
+          <li class="nav-item"><a class="nav-link " href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link " href="products.html">Products</a></li>
+          <li class="nav-item"><a class="nav-link " href="wishlist.html">Wishlist</a></li>
+          <li class="nav-item"><a class="nav-link" id="nav-login-link" href="login.html">Login</a></li>
+        </ul>
+        <div class="navbar-right">
+          <div id="nav-user-wrap"></div>
+          <a href="wishlist.html" class="nav-icon-btn" title="Wishlist">
+            <i class="bi bi-heart"></i>
+            <span class="badge" id="wishlist-count">0</span>
+          </a>
+          <a href="cart.html" class="nav-icon-btn" title="Cart">
+            <i class="bi bi-cart3"></i>
+            <span class="badge" id="cart-count">0</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container py-5">
+    <div class="confirmation-wrap">
+
+      <!-- STEPS BAR -->
+      <div class="checkout-steps mb-5">
+        <div class="step-item done">
+          <div class="step-circle"><i class="bi bi-cart-check"></i></div>
+          <div class="step-label">Cart</div>
+        </div>
+        <div class="step-line"></div>
+        <div class="step-item done">
+          <div class="step-circle"><i class="bi bi-person"></i></div>
+          <div class="step-label">Details</div>
+        </div>
+        <div class="step-line"></div>
+        <div class="step-item active">
+          <div class="step-circle"><i class="bi bi-check-lg"></i></div>
+          <div class="step-label">Confirm</div>
+        </div>
+      </div>
+
+      <!-- SUCCESS BOX -->
+      <div class="confirm-success-box">
+        <div class="confirm-icon">
+          <i class="bi bi-check-lg"></i>
+        </div>
+        <h3 class="fw-bold">Order Placed Successfully!</h3>
+        <p style="color:#888;margin-top:8px;">
+          Thank you for your order. We have received it and will process it shortly.
+        </p>
+        <div class="confirm-order-id">
+          <i class="bi bi-hash me-1"></i>Order ID: <span id="conf-order-id">—</span>
+        </div>
+      </div>
+
+      <!-- ORDER TRACKING -->
+      <div class="confirm-detail-card">
+        <h6><i class="bi bi-truck me-2"></i>Order Tracking</h6>
+        <div class="tracking-steps">
+          <div class="track-step" id="step-0">
+            <div class="track-circle"><i class="bi bi-bag-check"></i></div>
+            <div class="track-label">Order Placed</div>
+          </div>
+          <div class="track-step" id="step-1">
+            <div class="track-circle"><i class="bi bi-clipboard-check"></i></div>
+            <div class="track-label">Confirmed</div>
+          </div>
+          <div class="track-step" id="step-2">
+            <div class="track-circle"><i class="bi bi-box-seam"></i></div>
+            <div class="track-label">Shipped</div>
+          </div>
+          <div class="track-step" id="step-3">
+            <div class="track-circle"><i class="bi bi-bicycle"></i></div>
+            <div class="track-label">Out for Delivery</div>
+          </div>
+          <div class="track-step" id="step-4">
+            <div class="track-circle"><i class="bi bi-house-check"></i></div>
+            <div class="track-label">Delivered</div>
+          </div>
+        </div>
+        <p style="color:#888;font-size:0.82rem;margin-top:20px;text-align:center;">
+          <i class="bi bi-info-circle me-1"></i>
+          Estimated delivery: 3-5 business days
+        </p>
+      </div>
+
+      <!-- DELIVERY INFO -->
+      <div class="confirm-detail-card">
+        <h6><i class="bi bi-geo-alt me-2"></i>Delivery Information</h6>
+        <div class="detail-row">
+          <span class="label">Customer Name</span>
+          <span class="value" id="conf-name">—</span>
+        </div>
+        <div class="detail-row">
+          <span class="label">Order Date</span>
+          <span class="value" id="conf-date">—</span>
+        </div>
+        <div class="detail-row">
+          <span class="label">Delivery Address</span>
+          <span class="value" id="conf-address">—</span>
+        </div>
+      </div>
+
+      <!-- ORDERED ITEMS -->
+      <div class="confirm-detail-card">
+        <h6><i class="bi bi-receipt me-2"></i>Items Ordered</h6>
+        <div id="conf-items"></div>
+        <hr style="border-color:#2a2a2a;margin:14px 0;">
+        <div class="detail-row" style="font-size:1rem;font-weight:700;">
+          <span>Total Paid</span>
+          <span style="color:#00e676;" id="conf-total">—</span>
+        </div>
+      </div>
+
+      <!-- ACTION BUTTONS -->
+      <div class="d-flex gap-3 flex-wrap">
+        <a href="index.html" class="btn btn-primary-custom flex-grow-1">
+          <i class="bi bi-house me-2"></i>Back to Home
+        </a>
+        <a href="products.html" class="btn btn-outline-custom flex-grow-1">
+          <i class="bi bi-bag me-2"></i>Continue Shopping
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <div id="toast"></div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/wishlist.js"></script>
+  <script src="js/confirmation.js"></script>
+</body>
+</html>

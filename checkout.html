@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout — PSR-Card</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/checkout.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">PSR-Card</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"
+        aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav me-auto ms-3">
+          <li class="nav-item"><a class="nav-link " href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link " href="products.html">Products</a></li>
+          <li class="nav-item"><a class="nav-link " href="wishlist.html">Wishlist</a></li>
+          <li class="nav-item"><a class="nav-link" id="nav-login-link" href="login.html">Login</a></li>
+        </ul>
+        <div class="navbar-right">
+          <div id="nav-user-wrap"></div>
+          <a href="wishlist.html" class="nav-icon-btn" title="Wishlist">
+            <i class="bi bi-heart"></i>
+            <span class="badge" id="wishlist-count">0</span>
+          </a>
+          <a href="cart.html" class="nav-icon-btn" title="Cart">
+            <i class="bi bi-cart3"></i>
+            <span class="badge" id="cart-count">0</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container py-5">
+
+    <!-- STEPS BAR -->
+    <div class="checkout-steps mb-5">
+      <div class="step-item done">
+        <div class="step-circle"><i class="bi bi-cart-check"></i></div>
+        <div class="step-label">Cart</div>
+      </div>
+      <div class="step-line"></div>
+      <div class="step-item active">
+        <div class="step-circle"><i class="bi bi-person"></i></div>
+        <div class="step-label">Details</div>
+      </div>
+      <div class="step-line"></div>
+      <div class="step-item">
+        <div class="step-circle"><i class="bi bi-check-lg"></i></div>
+        <div class="step-label">Confirm</div>
+      </div>
+    </div>
+
+    <div class="row g-4">
+
+      <!-- LEFT: Delivery Form -->
+      <div class="col-lg-7">
+        <div class="checkout-card">
+          <h5 class="checkout-section-title">
+            <i class="bi bi-geo-alt me-2" style="color:#00e676;"></i>Delivery Details
+          </h5>
+
+          <!-- Error message -->
+          <div class="error-msg" id="form-error" style="display:none;"></div>
+
+          <form id="checkout-form">
+            <div class="row g-3">
+              <div class="col-12">
+                <label class="form-label-co">Full Name</label>
+                <input type="text" class="form-input-co" id="full-name" placeholder="Enter your full name">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label-co">Email Address</label>
+                <input type="email" class="form-input-co" id="email" placeholder="you@example.com">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label-co">Phone Number</label>
+                <input type="tel" class="form-input-co" id="phone" placeholder="10-digit mobile number" maxlength="10">
+              </div>
+              <div class="col-12">
+                <label class="form-label-co">Full Address</label>
+                <textarea class="form-input-co" id="address" rows="2" placeholder="House No., Street, Area"></textarea>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label-co">City</label>
+                <input type="text" class="form-input-co" id="city" placeholder="Your city">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label-co">Pincode</label>
+                <input type="text" class="form-input-co" id="pincode" placeholder="6-digit pincode" maxlength="6">
+              </div>
+            </div>
+
+            <h5 class="checkout-section-title mt-4">
+              <i class="bi bi-credit-card me-2" style="color:#00e676;"></i>Payment Method
+            </h5>
+
+            <div class="payment-options">
+              <label class="payment-option">
+                <input type="radio" name="payment" value="cod" checked>
+                <div class="payment-label">
+                  <i class="bi bi-cash-coin me-2"></i>Cash on Delivery
+                </div>
+              </label>
+              <label class="payment-option">
+                <input type="radio" name="payment" value="upi">
+                <div class="payment-label">
+                  <i class="bi bi-phone me-2"></i>UPI / GPay / PhonePe
+                </div>
+              </label>
+              <label class="payment-option">
+                <input type="radio" name="payment" value="card">
+                <div class="payment-label">
+                  <i class="bi bi-credit-card-2-front me-2"></i>Debit / Credit Card
+                </div>
+              </label>
+            </div>
+
+            <button type="submit" class="btn btn-primary-custom w-100 mt-4" style="padding:14px;">
+              <i class="bi bi-bag-check me-2"></i>Place Order
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- RIGHT: Order Summary -->
+      <div class="col-lg-5">
+        <div class="checkout-card">
+          <h5 class="checkout-section-title">
+            <i class="bi bi-receipt me-2" style="color:#00e676;"></i>Order Summary
+          </h5>
+          <div id="checkout-items"></div>
+          <hr style="border-color:#2a2a2a;margin:16px 0;">
+          <div class="d-flex justify-content-between mb-2" style="color:#aaa;font-size:0.9rem;">
+            <span>Subtotal</span><span id="co-subtotal">&#8377;0</span>
+          </div>
+          <div class="d-flex justify-content-between mb-2" style="color:#aaa;font-size:0.9rem;">
+            <span>Shipping</span><span>&#8377;99</span>
+          </div>
+          <div class="d-flex justify-content-between mt-3" style="font-size:1.1rem;font-weight:700;">
+            <span>Total</span><span style="color:#00e676;" id="co-total">&#8377;0</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div id="toast"></div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/wishlist.js"></script>
+  <script src="js/checkout.js"></script>
+</body>
+</html>

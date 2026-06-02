@@ -1,0 +1,208 @@
+@media (max-width: 992px) {
+
+  .hero-heading {
+    font-size: 2.6rem;
+
+    max-width: 360px;
+    margin-top: 30px;
+  }
+
+  .section-title {
+    font-size: 1.7rem;
+  }
+  .col-lg-3 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 36px 0 40px;
+    text-align: center;
+  }
+
+  .hero-heading {
+    font-size: 2rem;
+  }
+
+  .hero-desc {
+    font-size: 0.92rem;
+    margin: 0 auto 24px;
+    max-width: 100%;
+  }
+
+  .hero-img {
+    max-width: 100%;
+    width: 85%;
+    margin: 28px auto 0;
+    display: block;
+  }
+
+  .hero-stats {
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 28px;
+  }
+  .hero-section .d-flex.flex-wrap {
+    justify-content: center;
+  }
+
+  .section-title {
+    font-size: 1.45rem;
+  }
+
+  .col-lg-3,
+  .col-md-6 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .col-lg-4 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .category-card {
+    height: 180px;
+  }
+
+  .limited-banner {
+    padding: 36px 20px;
+  }
+
+  .limited-banner h2 {
+    font-size: 1.5rem;
+  }
+
+  .countdown-wrap {
+    gap: 8px;
+  }
+
+  .countdown-box {
+    padding: 10px 12px;
+    min-width: 58px;
+  }
+
+  .countdown-box .count-number {
+    font-size: 1.3rem;
+  }
+
+  .newsletter-input-wrap {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .newsletter-input-wrap input,
+  .newsletter-input-wrap button {
+    width: 100%;
+  }
+
+  .filter-bar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .search-input,
+  .sort-select {
+    width: 100%;
+  }
+
+  .filter-bar .d-flex {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .cart-item-img {
+    width: 60px !important;
+    height: 60px !important;
+  }
+
+  .cart-item-title {
+    font-size: 0.82rem;
+  }
+
+  .qty-controls span {
+    font-size: 0.95rem;
+  }
+  .cart-summary-box {
+    position: static;
+  }
+  footer {
+    text-align: center;
+  }
+
+  .social-icon {
+    margin: 0 8px;
+  }
+
+  footer .row > div {
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .navbar-brand {
+    font-size: 1.25rem;
+  }
+
+  .hero-heading {
+    font-size: 1.7rem;
+  }
+
+  .hero-stats {
+    gap: 16px;
+  }
+
+  .stat-number {
+    font-size: 1.3rem;
+  }
+
+  .countdown-wrap {
+    gap: 6px;
+  }
+
+  .countdown-box {
+    min-width: 52px;
+    padding: 8px 10px;
+  }
+
+  .countdown-box .count-number {
+    font-size: 1.1rem;
+  }
+
+  .btn-primary-custom,
+  .btn-outline-custom {
+    padding: 10px 18px;
+    font-size: 0.88rem;
+  }
+
+  .login-card {
+    padding: 24px 16px;
+    margin: 16px;
+  }
+
+  #toast {
+    bottom: 16px;
+    right: 16px;
+    left: 16px;
+    max-width: 100%;
+    text-align: center;
+  }
+  .step-circle {
+    width: 36px;
+    height: 36px;
+    font-size: 0.9rem;
+  }
+
+  .step-label {
+    font-size: 0.68rem;
+  }
+
+  .step-line {
+    max-width: 30px;
+  }
+}
